@@ -1,0 +1,23 @@
+<div>
+  <!-- Input field -->
+  <input [(ngModel)]="inputText" placeholder="Enter some text">
+
+  <!-- Button to add text to the message list -->
+  <button (click)="ajout()">ajouter</button>
+
+  <!-- Button to delete the last message -->
+  <button (click)="sup()">supprimer</button>
+
+  <!-- Button to toggle between random and ordered colors -->
+  <button (click)="random()">{{ getButtonText() }}</button>
+
+  <!-- Button to toggle sorting order -->
+  <button (click)="toggleSortOrder()">{{ sortOrder }}</button>
+
+  <!-- Unordered list to display the messages with alternating or random colors -->
+  <ul>
+    <li *ngFor="let message of messagesTable; let i = index" [ngStyle]="{'color': getTextColor(i)}">
+      {{ message.text }}
+    </li>
+  </ul>
+</div>
