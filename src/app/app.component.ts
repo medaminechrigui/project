@@ -10,7 +10,8 @@ export class AppComponent {
   displayedText: string = ''; // Variable to store the displayed text
   messagesTable: { text: string, color?: string }[] = []; // Array of objects for storing messages and colors
   useRandomColors: boolean = false; // Flag to switch between random and ordered colors
-  sortOrder: 'asc' | 'desc' | 'random' = 'asc'; // New property to track sorting order
+  sortOrder: 'asc' | 'desc' | 'random' = 'asc';
+  showitem : boolean =false; // New property to track sorting order
 
   // Method to add the input text to the messages table
   ajout() {
@@ -21,6 +22,9 @@ export class AppComponent {
       this.sortMessages(); // Sort the messages after adding a new one
     }
   }
+  // Function to toggle the visibility of a <ul> element
+
+// Example: Bind the function to a button click
 
   // Method to delete the last element from the messages table
   sup() {
@@ -36,7 +40,7 @@ export class AppComponent {
     }
 
     // Return ordered colors
-    const colors = ['red', 'green', 'blue'];
+    const colors = ['red', 'green', 'blue' , 'purple'];
     return colors[index % colors.length]; // Return ordered colors otherwise
   }
 
@@ -91,5 +95,11 @@ export class AppComponent {
   }
   getButtonText(): string {
     return this.useRandomColors ? 'cyclic' : 'random'; // Return 'cyclic' if in random state, otherwise 'random'
+  }
+  show(){
+    this.showitem = !this.showitem;
+  }
+  showhide(){
+    return this.showitem ? 'hide' : ' show';
   }
 }

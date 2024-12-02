@@ -15,7 +15,8 @@
   <button (click)="toggleSortOrder()">{{ sortOrder }}</button>
 
   <!-- Unordered list to display the messages with alternating or random colors -->
-  <ul>
+  <button (click)="show()">{{showhide()}}</button>
+  <ul *ngIf="showitem">
     <li *ngFor="let message of messagesTable; let i = index" [ngStyle]="{'color': getTextColor(i)}">
       {{ message.text }}
     </li>
